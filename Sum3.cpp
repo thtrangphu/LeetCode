@@ -1,35 +1,45 @@
-#include<algorithm>
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
+	
         vector<vector<int>> ans;
-        vector<int> v(3, INT_MIN);
+		
+        int n = nums.size();
+        
         sort(nums.begin(), nums.end());
-   
-        for(int i = 0; i< nums.size() - 2; i++)
-        {
-            int l = i + 1; 
-            int r = nums.size() - 1;
-            while(l < r){
-                int x = nums[i] + nums[l] + nums[r];
-                if(x == 0) {
-                    v[0] = nums[i];
-                    v[1] = nums[l];
-                    v[2] = nums[r];
-                    ans.push_back(v);
-                    l++;r--;
+        
+        for(int i = 0; i < n-2; i++){            
+            
+            if(i == 0 || (i > 0 && nums[i] != nums[i-1])){
+                int low = i+1;
+                int high = n-1;
+                int sum = 0-nums[i];
+            
+                while(low < high){
+				
+                    if(nums[low] + nums[high] == sum){
+					
+                        vector<int> v;
+                        v.push_back(nums[i]);
+                        v.push_back(nums[low]);
+                        v.push_back(nums[high]);
                     
-                }
-                else if(x > 0){
-                    r--;
-                }
-                else if(x < 0){
-                    l++;
+                        ans.push_back(v);
+                    
+                        while(low < high && nums[low] == nums[low+1]) low++;
+                        while(low < high && nums[high] == nums[high-1]) high--;
+                    
+                        low++; high--;
+                    }
+                    else if(nums[low] + nums[high] > sum) {
+                        high--;
+					}
+                    else{ 
+                        low++;
+					}
                 }
             }
-      
         }
         return ans;
     }
-    
 };

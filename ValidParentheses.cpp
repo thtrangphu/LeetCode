@@ -4,10 +4,12 @@ public:
         stack<char> x;
        
         for(int i = 0; i < s.size(); i++){
-            if(s[i] == '(' || s[i] == '{' || s[i] == '[') 
-                x.push(s[i]);
-            else {             
-                if( x.empty() || (s[i] == ')' && x.top() != '(') || (s[i] == ']' && x.top() != '[') || (s[i] == '}' && x.top() != '{') ) return false;
+            if(s[i] == '(') x.push(')');
+            else if(s[i] == '[') x.push(']');
+            else if(s[i] == '{') x.push('}');
+            else 
+            {
+                if( x.empty() || (s[i] != x.top())) return false;
                 else x.pop();
             }
         }

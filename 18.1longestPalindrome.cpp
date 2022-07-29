@@ -15,7 +15,6 @@ public:
             if(a[i] % 2 == 0 && a[i] != 0) even+=a[i]; // chẵn khác 0
             else { 
                 if(i == 97) cout << a[i] << endl;
-                maxOdd = Max(maxOdd, a[i]);
             }
             if(a[i] != 0)
             cout << "a[i] = "<< a[i] << " - even = " << even <<" - max = " << maxOdd<<endl;

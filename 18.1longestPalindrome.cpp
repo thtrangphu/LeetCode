@@ -13,13 +13,9 @@ public:
         
         for(int i = 0; i < 256; i++){
             if(a[i] % 2 == 0 && a[i] != 0) even+=a[i]; // chẵn khác 0
-            else { 
-                if(i == 97) cout << a[i] << endl;
-            }
-            if(a[i] != 0)
-            cout << "a[i] = "<< a[i] << " - even = " << even <<" - max = " << maxOdd<<endl;
+            else if ((a[i] % 2 == 0) maxOdd = Max(maxOdd, a[i]);
         }
-        
+                     
         return even + maxOdd;
     }
 };

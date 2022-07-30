@@ -31,5 +31,26 @@ public:
         
     return num[j];
 }
-
 };
+
+/*
+class Solution {
+public:
+    int majorityElement(vector<int> &a) {
+        int n = a.size();
+        int cnt = n/2;
+        int j = 0;
+        
+        while(1){
+            int c = 1;
+            for(int i = 1; i < n; i++){
+                if(a[j] == a[i]) c++;
+            }
+            if(c > cnt) return a[j];
+            j++;
+        }
+        
+    }
+};
+*/
+

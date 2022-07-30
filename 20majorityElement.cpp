@@ -53,4 +53,20 @@ public:
     }
 };
 */
+class Solution {
+public:
+    int majorityElement(vector<int> &a) {
+        int count = 0;
+        int ans = INT_MIN;
 
+        for (int i = 0; i < a.size(); i++) {
+            if (count == 0) {
+                ans = a[i];
+            }
+            count += (a[i] == ans) ? 1 : -1;
+        }
+
+        return ans;
+        
+    }
+};

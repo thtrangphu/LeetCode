@@ -15,22 +15,21 @@ public:
     }
 };
 */
-
 class Solution {
 public:
     int majorityElement(vector<int> &num) {
-    int majorityIndex = 0;
+    int j = 0;
     for (int count = 1, i = 1; i < num.size(); i++) {
-        num[majorityIndex] == num[i] ? count++ : count--;
-        cout << "num[majorityIndex] = " << num[majorityIndex] <<" - num[i] = " << num[i] << " cnt = " << count<< endl;
+        num[j] == num[i] ? count++ : count--;
+        cout << "num[j] = " << num[j] <<" - num[i] = " << num[i] << " cnt = " << count<< endl;
         if (count == 0) {
-            majorityIndex = i;
+            j = i;
             count = 1;
-            cout << majorityIndex << endl;
+            cout << j << endl;
         }
     }
         
-    return num[majorityIndex];
+    return num[j];
 }
 
 };
